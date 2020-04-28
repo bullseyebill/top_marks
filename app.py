@@ -5,9 +5,9 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'top_marks'
-app.config["MONGO_URI"] = os.getenv('')
+app.config["MONGO_URI"] = os.getenv('mongodb+srv://ourAdmin:P00lly@cluster0-ljcl4.mongodb.net/top_marks?retryWrites=true&w=majority')
 
-mongo = Pymongo(app)
+mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/get_buoys')
