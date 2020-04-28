@@ -1,12 +1,18 @@
 import os
-from flask import Flask
+from flask import Flask, render_template, redirect, request, url_for
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
+app.config["MONGO_DBNAME"] = 'top_marks'
+app.config["MONGO_URI"] = os.getenv('')
 
+mongo = Pymongo(app)
 
 @app.route('/')
-def hello():
-    return 'Hello World....again and welcome to Top Marks my new project!!'
+@app.route('/get_buoys')
+def get_buoys():
+    return render_template("buoys.html", buoys=mongo.db.buoys.find())
 
 
 if __name__ == '__main__':
