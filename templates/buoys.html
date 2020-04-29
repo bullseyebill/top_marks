@@ -1,14 +1,14 @@
 {% extends 'core.html' %}
 {% block content %}
 
-         {% for buoy in buoys %}
+     {% for buoy in buoys %}
          {{buoy.category_name}}
          {{buoy.category_type}}
          {{buoy.category_location}}
          {{buoy.category_comments}}
          {{buoy.is_danger}}
          {{buoy.entry_date}}
-         {% endfor %}
+     {% endfor %}
 
 {% endblock %}         
    
