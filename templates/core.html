@@ -3,25 +3,46 @@
     <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        
-
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     </head>
+
     <body>
     <header>
        <nav>
          <div class="nav-wrapper">
-           <a href="core.html" class="brand-logo center">TOPMARKS - Navigation</a>
-            <ul class="left hide-on-med-and-down">
-            <li><a href="">About</a></li>
-            <li><a href="">Edit</a></li>
-            <li ><a href="">Add</a></li>
+           <a href="{{url_for('get_buoys')}}" class="brand-logo center">TOPMARKS - Navigation</a>
+           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+           <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{url_for('get_buoys')}}">Home</a></li>
+            <li><a href="{{url_for('add_mark')}}">New Mark</a></li>
+            <li ><a href="{{url_for('get_categories')}}">Edit/Delete</a></li>
             </ul>
          </div>
-      </nav>
-        {% block content %}
-        {% endblock %}
+       </nav>
+    </header>
+    <div class="container">   
+        {% block content %} {% endblock %}
+    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
-    </body>
-</html>        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.collapsible').collapsible();
+                $('select').formSelect();
+                $('.sidenav').sidenav();
+
+                $(".datepicker").datepicker({
+                    format: "dd mmm yyyy",
+                    yearRange: 3,
+                    showClearBtn: true,
+                    i18n: {
+                        clear: "Clear",
+                        done: "Select",
+                        cancel: "Cancel"
+                    }
+                });
+            });
+         </script>
+     </body>
+</html>         
     
