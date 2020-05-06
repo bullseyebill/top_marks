@@ -1,7 +1,7 @@
-% extends 'core.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
-        {% for buoy in buoys %}  
+        {% for task in tasks %}  
         <li>
            <div class="collapsible-header">
                <div class="col s3">
@@ -23,5 +23,4 @@
         {% endfor %}
     </ul>  
 </div>
-{% endblock %}        
-          
+{% endblock %}
